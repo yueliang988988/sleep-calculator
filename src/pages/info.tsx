@@ -3,11 +3,10 @@ import React from 'react'
 
 const info: NextPage = () => {
   return (
-    <section 
-      className='p-4'
-    >
-      info
-    </section>
+    <>
+      
+      <h2 className='text-2xl text-gray-800 p-4'>info</h2>
+    </>
   )
 }
 
