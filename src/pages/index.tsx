@@ -6,30 +6,49 @@ import useCalculateCycle, {SleepCycleQuery, SleepCycleResult} from "../utils/use
 const Home: NextPage = () => {
   // trpc example
   const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
-  const { sleepTimeArray, message } = useCalculateCycle({
-    time: "10:30 AM",
+  const { wakeTimeArray, sleepTimeArray, message } = useCalculateCycle({
+    sleepTime: "10:30 AM",
+    wakeTime: "08:00 AM",
     method: "to"
   })
   
   return (
     <>
-      <h2 className="text-2xl text-gray-800 p-4">One cycle from 10:30 AM is: </h2>
+      <h2 className="text-2xl text-gray-800 p-4">I will be asleep by 10:30 AM... </h2>
       <div
         className="p-4"
       >
         {/* time picker component */}
         <p>
-          {sleepTimeArray[0]}
+          {wakeTimeArray[0]} | 
+          {wakeTimeArray[1]} | 
+          {wakeTimeArray[2]} |
+          {wakeTimeArray[3]} |
+          {wakeTimeArray[4]} |
+          {wakeTimeArray[5]} |
+          {wakeTimeArray[6]}
         </p>
-        <p>
+        <p
+          className=" text-xl pt-4 text-amber-800"
+        >
           {message}
         </p>
 
       </div>
-      <h2 className="text-2xl text-gray-800 p-4">I need to wake up at: </h2>
+      <h2 className="text-2xl text-gray-800 p-4">I need to wake up at 8:00 AM...</h2>
       <div
-        // className=""
+        className="p-4"
+        
       >
+        <p>
+          {sleepTimeArray[0]} | 
+          {sleepTimeArray[1]} | 
+          {sleepTimeArray[2]} |
+          {sleepTimeArray[3]} |
+          {sleepTimeArray[4]} |
+          {sleepTimeArray[5]} |
+          {sleepTimeArray[6]}
+        </p>
         {/* time picker component */}
       </div>
       {/* ! trpc example */}
