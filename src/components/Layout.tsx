@@ -1,12 +1,16 @@
 import React from 'react';
 import Head from "next/head";
 import Link from 'next/link';
+import {useRouter} from 'next/router';
 
 type LayoutProps = {
   children: React.ReactNode;
 }
 
 const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
+
+  const router = useRouter();
+  // console.log(router.pathname);
 
   return (
     <>
@@ -21,16 +25,16 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
       >
 
         {/* navi */}
-        <nav className="flex flex-row items-center justify-start h-20 px-4 py-1 gap-8">
+        <nav className={`flex flex-row items-center justify-start h-20 px-4 py-1 gap-8`}>
             <Link
               href="/"
             >
-              <a className='hover:underline'>sleep</a>
+              <a className={`${router.pathname == "/" ? "bg-slate-300 rounded-md" : "" } p-4 hover:underline`}>sleep</a>
             </Link>
             <Link
               href="/info"
             >
-              <a className='hover:underline'>info</a>
+              <a className={`${router.pathname == "/" ? "" : "bg-slate-300 rounded-md" } p-4 hover:underline`}>info</a>
             </Link>
         </nav>
 
