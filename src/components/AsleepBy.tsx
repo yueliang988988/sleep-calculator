@@ -1,74 +1,75 @@
 import React, {useState, useEffect} from 'react';
 import useCalculateCycle, {SleepCycleQuery, SleepCycleResult} from "../utils/useCalculateCycle";
-// import date from 'date-and-time';
 import Select, {SingleValue} from 'react-select';
+import { hoursSelect, minutesSelect, meridiemSelect } from '../utils/timeChoices';
 
-// type OptionType = {
-//   value: string, 
-//   label: string
-// }
+
 const AsleepBy: React.FC = () => {
-  const [selectHours, setSelectHours] = useState<SingleValue<{value: string, 
-    label: string}>>()
-  // const [currTime, setCurrTime] = useState<Date | null>();
+  const [selectedHours, setSelectedHours] = useState<SingleValue<{value: string, 
+    label: string}>>();
+  const [selectedMinutes, setSelectedMinutes] = useState<SingleValue<{value: string, 
+    label: string}>>();
+  const [selectedMeridiem, setSelectedMeridiem] = useState<SingleValue<{value: string, 
+    label: string}>>();
   const { timeArray, message } = useCalculateCycle({
     time: "10:30 AM",
     method: "asleepBy"
   });
 
-  const options = [
-    { value: "1", label: "1"},
-    { value: "2", label: "2"},
-    { value: "3", label: "3"},
-    { value: "4", label: "4"},
-    { value: "5", label: "5"},
-    { value: "6", label: "6"},
-    { value: "7", label: "7"},
-    { value: "8", label: "8"},
-    { value: "9", label: "9"},
-    { value: "10", label: "10"},
-    { value: "11", label: "11"},
-    { value: "12", label: "12"}
-  ];
 
   const handleChangeHours = (obj: SingleValue<{value: string, 
     label: string}>) => {
-    setSelectHours(obj);
+    setSelectedHours(obj);
   }
-
-  console.log("selected: ", selectHours?.value)
-  
+  const handleChangeMinutes = (obj: SingleValue<{value: string, 
+    label: string}>) => {
+    setSelectedMinutes(obj);
+  }
+  const handleChangeMeridiem = (obj: SingleValue<{value: string, 
+    label: string}>) => {
+    setSelectedMeridiem(obj);
+  }  
 
 
   return (
     <div
         className=" flex flex-col items-start justify-start gap-4 p-4 h-80"
       >
-        {/* time picker component */}
-        {/* <p></p> */}
-        {/* <input 
-          type="time"
-          className="p-3 font-bold text-xl font-mono bg-slate-200 rounded-md"
-          onChange={(e) => {
-            console.log("lmao!");
-            setCurrTime(e.target.valueAsDate);
-            let setTime = e.target.valueAsDate!;
-            console.log(date.format(setTime, "hh:mm A"))
-          }}
-        /> */}
+        <div
+          className='flex flex-row items-start justify-start gap-4'
+        >
 
-        {/* ! LETS DO SINGLE DROP DOWN INPUTS */}
-        <Select 
-          options={options}
-          instanceId={"hours"}
-          // className="w-20"
-          onChange={(option) => handleChangeHours(option)}
-          blurInputOnSelect
-        />
+          <Select 
+            options={hoursSelect}
+            instanceId={"hours"}
+            // className="w-20"
+            onChange={(option) => handleChangeHours(option)}
+            blurInputOnSelect
+          />
+          <Select 
+            options={minutesSelect}
+            instanceId={"minutes"}
+            // className="w-20"
+            onChange={(option) => handleChangeMinutes(option)}
+            blurInputOnSelect
+          />
+          <Select 
+            options={meridiemSelect}
+            instanceId={"meridiem"}
+            // className="w-20"
+            onChange={(option) => handleChangeMeridiem(option)}
+            blurInputOnSelect
+          />
+        </div>
 
         <p>
-          {/* {currTime === "" ? "--:-- --" : currTime} */}
-          {selectHours?.value ? selectHours?.value : "pick something"}
+          {selectedHours?.value ? selectedHours?.value : "pick something"}
+        </p>
+        <p>
+          {selectedMinutes?.value ? selectedMinutes?.value : "pick something"}
+        </p>
+        <p>
+          {selectedMeridiem?.value ? selectedMeridiem?.value : "pick something"}
         </p>
 
         <p>
