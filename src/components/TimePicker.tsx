@@ -4,9 +4,11 @@ import Select, {SingleValue} from 'react-select';
 import { hoursSelect, minutesSelect, meridiemSelect } from '../utils/timeChoices';
 
 
+type TimePickerProps = {
+  method: "asleepBy" | "wakeUpAt"
+};
 
-
-const AsleepBy: React.FC = () => {
+const TimePicker: React.FC<TimePickerProps> = (method) => {
   const [selectedHours, setSelectedHours] = useState<SingleValue<{value: string, 
     label: string}>>();
   const [selectedMinutes, setSelectedMinutes] = useState<SingleValue<{value: string, 
@@ -36,7 +38,7 @@ const AsleepBy: React.FC = () => {
 
   return (
     <div
-        className=" flex flex-col items-start justify-start gap-4 p-4 h-80"
+        className=" flex flex-col items-start justify-start gap-4 p-4 h-60"
       >
         <div
           className='flex flex-row items-start justify-start gap-4'
@@ -64,15 +66,19 @@ const AsleepBy: React.FC = () => {
             blurInputOnSelect
           />
         </div>
-
+        {/* 
+          <p>
+            {selectedHours?.value ? selectedHours?.value : "pick something"}
+          </p>
+          <p>
+            {selectedMinutes?.value ? selectedMinutes?.value : "pick something"}
+          </p>
+          <p>
+            {selectedMeridiem?.value ? selectedMeridiem?.value : "pick something"}
+          </p> */
+        }
         <p>
-          {selectedHours?.value ? selectedHours?.value : "pick something"}
-        </p>
-        <p>
-          {selectedMinutes?.value ? selectedMinutes?.value : "pick something"}
-        </p>
-        <p>
-          {selectedMeridiem?.value ? selectedMeridiem?.value : "pick something"}
+          {`${selectedHours?.value}:${selectedMinutes?.value} ${selectedMeridiem?.value}`}
         </p>
 
         <p>
@@ -94,4 +100,4 @@ const AsleepBy: React.FC = () => {
   )
 }
 
-export default AsleepBy
+export default TimePicker

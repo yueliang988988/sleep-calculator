@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import AsleepBy from "../components/AsleepBy";
 import WakeUpAt from "../components/WakeUpAt";
 import { trpc } from "../utils/trpc";
+import TimePicker from "../components/TimePicker";
 // import useCalculateCycle, {SleepCycleQuery, SleepCycleResult} from "../utils/useCalculateCycle";
 
 
@@ -15,13 +16,17 @@ const Home: NextPage = () => {
   
   return (
     <>
-      <h2 className="text-2xl text-gray-800 p-4">I will be asleep by 10:30 AM... </h2>
+      <h2 className="text-2xl text-gray-800 p-4">I will be asleep by... </h2>
 
-      <AsleepBy />
+      {/* <AsleepBy /> */}
+      <TimePicker method="asleepBy" />
 
-      <h2 className="text-2xl text-gray-800 p-4">I need to wake up at 8:00 AM...</h2>
+      <h2 className="text-2xl text-gray-800 p-4">I need to wake up at...</h2>
 
-      <WakeUpAt />
+      {/* <WakeUpAt /> */}
+
+      <TimePicker method="wakeUpAt" />
+
       {/* ! trpc example */}
       {/* <div className="pt-6 px-4 text-2xl text-blue-500 w-full">
         {hello.data ? <p>{hello.data.greeting}</p> : <p>Loading..</p>}
