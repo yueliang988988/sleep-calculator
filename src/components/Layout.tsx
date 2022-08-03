@@ -21,7 +21,7 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
       </Head>
       <header
         className="container flex flex-col items-start justify-center mx-auto
-                    w-11/12 xl:w-4/5 2xl:w-3/5 p-4 bg-slate-200"
+                    w-11/12 xl:w-4/5 2xl:w-3/5 p-4 bg-slate-100"
       >
 
         {/* navi */}
@@ -29,12 +29,12 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
             <Link
               href="/"
             >
-              <a className={`${router.pathname == "/" ? "bg-slate-300 rounded-md" : "" } p-4 hover:underline`}>sleep</a>
+              <a className={`${router.pathname == "/" ? "bg-slate-200 rounded-md" : "" } p-4 hover:underline`}>sleep</a>
             </Link>
             <Link
               href="/info"
             >
-              <a className={`${router.pathname == "/" ? "" : "bg-slate-300 rounded-md" } p-4 hover:underline`}>info</a>
+              <a className={`${router.pathname == "/" ? "" : "bg-slate-200 rounded-md" } p-4 hover:underline`}>info</a>
             </Link>
         </nav>
 
@@ -49,7 +49,7 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
       </header>
 
       <main className="container flex flex-col items-start justify-start mx-auto 
-                        w-11/12 xl:w-4/5 2xl:w-3/5 p-4 min-h-[40vh] bg-slate-400">
+                        w-11/12 xl:w-4/5 2xl:w-3/5 p-4 min-h-[40vh] bg-slate-200">
         {props.children}
       </main>
     </>

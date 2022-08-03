@@ -1,5 +1,6 @@
 // import React, {useState} from 'react';
 import date from 'date-and-time';
+import { TimePickerProps } from '../components/TimePicker';
 
 export type SleepCycleQuery = {
   time: string,
@@ -12,7 +13,7 @@ export type SleepCycleResult = {
 }
 
 const useCalculateCycle = (query: SleepCycleQuery): SleepCycleResult => {
-  const pattern = date.compile("hh:mm A");
+  const pattern = date.compile("h:mm A");
   let inputTime: Date = date.parse(query.time, pattern);
   let addCycle0: Date;
   let addCycle1: Date;
