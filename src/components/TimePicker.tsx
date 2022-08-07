@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import useCalculateCycle, {SleepCycleQuery, SleepCycleResult} from "../utils/useCalculateCycle";
 import Select, {SingleValue} from 'react-select';
+import SolutionDisplay from './SolutionDisplay';
 import { hoursSelect, minutesSelect, meridiemSelect } from '../utils/timeChoices';
 
 
@@ -114,10 +115,10 @@ const TimePicker: React.FC<TimePickerProps> = ({method}) => {
         {/* 
           // ! create smaller component here, pass array and method as props
         */}
-        <p>
-          {solutionArray ? `${solutionArray[0]} | ${solutionArray[1]} | ${solutionArray[2]} | ${solutionArray[3]} | ${solutionArray[4]} | ${solutionArray[5]} | ${solutionArray[6]}` : ""}
+      
+          {solutionArray ? <SolutionDisplay solutionArray={solutionArray} /> : <p>Pick a valid time!</p>}
           
-        </p>
+    
         {/* <p
           className=" text-xl pt-4 text-amber-800"
         > */}
