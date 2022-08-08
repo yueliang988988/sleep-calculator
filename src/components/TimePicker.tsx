@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import useCalculateCycle, {SleepCycleQuery, SleepCycleResult} from "../utils/useCalculateCycle";
 import Select, {SingleValue} from 'react-select';
 import SolutionDisplay from './SolutionDisplay';
+import { useCycle } from 'framer-motion';
 import { hoursSelect, minutesSelect, meridiemSelect } from '../utils/timeChoices';
 
 
@@ -17,6 +18,8 @@ const TimePicker: React.FC<TimePickerProps> = ({method}) => {
   const [selectedMeridiem, setSelectedMeridiem] = useState<SingleValue<{value: string, 
     label: string}>>();
   const [solutionArray, setSolutionArray] = useState<string[]>();
+
+  const [isOpen, toggleOpen] = useCycle<boolean>(false, true)
   // const {}
   // const { timeArray, message } = useCalculateCycle({
   //   time: "10:30 AM",
@@ -37,7 +40,7 @@ const TimePicker: React.FC<TimePickerProps> = ({method}) => {
     setSelectedMeridiem(obj);
   }
   const handleSubmitTime = () => {
-    console.log(selectedHours?.value);
+    // console.log(selectedHours?.value);
     if (selectedHours?.value === undefined || selectedMinutes?.value === undefined || selectedMeridiem?.value === undefined){
       return;
     }
@@ -45,8 +48,10 @@ const TimePicker: React.FC<TimePickerProps> = ({method}) => {
       time: `${selectedHours?.value}:${selectedMinutes?.value} ${selectedMeridiem?.value}`,
       method: method
     });
-    console.table(timeArray);
+    // console.table(timeArray);
+    // toggleOpen();
     setSolutionArray(timeArray);
+    toggleOpen();
 
   };
 
@@ -116,7 +121,7 @@ const TimePicker: React.FC<TimePickerProps> = ({method}) => {
           // ! create smaller component here, pass array and method as props
         */}
       
-          {solutionArray ? <SolutionDisplay solutionArray={solutionArray} /> : <p>Pick a valid time!</p>}
+          {solutionArray ? <SolutionDisplay solutionArray={solutionArray} isOpen={isOpen} /> : <p>Pick a valid time!</p>}
           
     
         {/* <p
