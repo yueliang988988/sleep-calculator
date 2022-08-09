@@ -1,63 +1,192 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 type SolutionDisplayProps = {
-  isOpen: boolean,
   solutionArray: string[]
 }
 
-const parent = {
-  opening: {
-    transition: {
-      staggerChildren: 0.07, delayChildren: 0.2
-    }
-  },
-  closing: {
-    transition: {
-      staggerChildren: 0.05, staggerDirection: -0.5
-    }
-  }
-};
-
-const children = {
-  opening: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      y: { stiffness: 1000, velocity: -100 }
-    }
-  },
-  closing: {
-    y: 10,
-    opacity: 0,
-    transition: {
-      y: { stiffness: 1000 }
-    }
-  }
-};
-
-const SolutionDisplay: React.FC<SolutionDisplayProps> = ({solutionArray, isOpen}) => {
+const SolutionDisplay: React.FC<SolutionDisplayProps> = ({solutionArray}) => {
   
   return (
-    <motion.div
-      className='flex flex-row justify-start items-start gap-4'
-      animate={ isOpen ? "opening" : "closing"}
-      variants={parent}
-    >
-      {
-        solutionArray.map( time => (
-          <motion.div
-            className="bg-amber-300"
-            key={time}
-            variants={children}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            {time}
-          </motion.div>
-        ))
-      }
-    </motion.div>
+  <div className='flex flex-row justify-start items-start gap-4'>
+
+      <AnimatePresence exitBeforeEnter>
+            <motion.div
+              key={solutionArray[0]}
+              initial={{
+                y: 10,
+                opacity: 0,
+              }}
+              transition={{
+                delay: 0.05,
+                y: {
+                  stiffness: 1000, velocity: -100
+                }
+              }}
+              animate={{
+                opacity: 1,
+                y: 0
+              }}
+              exit={{ 
+                y: -10,
+                opacity: 0 
+              }}
+            >
+              {solutionArray[0]}
+            </motion.div>
+      </AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
+            <motion.div
+              key={solutionArray[1]}
+              initial={{
+                y: 10,
+                opacity: 0,
+              }}
+              transition={{
+                delay: 0.15,
+                y: {
+                  stiffness: 1000, velocity: -100
+                }
+              }}
+              animate={{
+                opacity: 1,
+                y: 0
+              }}
+              exit={{ 
+                y: -10,
+                opacity: 0 
+              }}
+            >
+              {solutionArray[1]}
+            </motion.div>
+      </AnimatePresence>
+            <AnimatePresence exitBeforeEnter>
+            <motion.div
+              key={solutionArray[2]}
+              initial={{
+                y: 10,
+                opacity: 0,
+              }}
+              transition={{
+                delay: 0.25,
+                y: {
+                  stiffness: 1000, velocity: -100
+                }
+              }}
+              animate={{
+                opacity: 1,
+                y: 0
+              }}
+              exit={{ 
+                y: -10,
+                opacity: 0 
+              }}
+            >
+              {solutionArray[2]}
+            </motion.div>
+      </AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
+            <motion.div
+              key={solutionArray[3]}
+              initial={{
+                y: 10,
+                opacity: 0,
+              }}
+              transition={{
+                delay: 0.35,
+                y: {
+                  stiffness: 1000, velocity: -100
+                }
+              }}
+              animate={{
+                opacity: 1,
+                y: 0
+              }}
+              exit={{ 
+                y: -10,
+                opacity: 0 
+              }}
+            >
+              {solutionArray[3]}
+            </motion.div>
+      </AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
+            <motion.div
+              key={solutionArray[4]}
+              initial={{
+                y: 10,
+                opacity: 0,
+              }}
+              transition={{
+                delay: 0.45,
+                y: {
+                  stiffness: 1000, velocity: -100
+                }
+              }}
+              animate={{
+                opacity: 1,
+                y: 0
+              }}
+              exit={{ 
+                y: -10,
+                opacity: 0 
+              }}
+            >
+              {solutionArray[4]}
+            </motion.div>
+      </AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
+            <motion.div
+              key={solutionArray[5]}
+              initial={{
+                y: 10,
+                opacity: 0,
+              }}
+              transition={{
+                delay: 0.55,
+                y: {
+                  stiffness: 1000, velocity: -100
+                }
+              }}
+              animate={{
+                opacity: 1,
+                y: 0
+              }}
+              exit={{ 
+                y: -10,
+                opacity: 0 
+              }}
+            >
+              {solutionArray[5]}
+            </motion.div>
+      </AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
+            <motion.div
+              key={solutionArray[6]}
+              initial={{
+                y: 10,
+                opacity: 0,
+              }}
+              transition={{
+                delay: 0.65,
+                y: {
+                  stiffness: 1000, velocity: -100
+                }
+              }}
+              animate={{
+                opacity: 1,
+                y: 0
+              }}
+              exit={{ 
+                y: -10,
+                opacity: 0 
+              }}
+            >
+              {solutionArray[6]}
+            </motion.div>
+      </AnimatePresence>
+
+  </div>
   )
 }
 

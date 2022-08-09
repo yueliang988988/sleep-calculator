@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react';
-import useCalculateCycle, {SleepCycleQuery, SleepCycleResult} from "../utils/useCalculateCycle";
+import React, {useState} from 'react';
+import useCalculateCycle from "../utils/useCalculateCycle";
 import Select, {SingleValue} from 'react-select';
 import SolutionDisplay from './SolutionDisplay';
-import { useCycle } from 'framer-motion';
 import { hoursSelect, minutesSelect, meridiemSelect } from '../utils/timeChoices';
+import usePrevious from '../utils/usePrevious';
 
 
 export type TimePickerProps = {
@@ -11,21 +11,18 @@ export type TimePickerProps = {
 };
 
 const TimePicker: React.FC<TimePickerProps> = ({method}) => {
+  
   const [selectedHours, setSelectedHours] = useState<SingleValue<{value: string, 
     label: string}>>();
+  const prevHours = usePrevious(selectedHours?.value);
   const [selectedMinutes, setSelectedMinutes] = useState<SingleValue<{value: string, 
     label: string}>>();
+  const prevMinutes = usePrevious(selectedMinutes?.value);
   const [selectedMeridiem, setSelectedMeridiem] = useState<SingleValue<{value: string, 
     label: string}>>();
+  const prevMeridiem = usePrevious(selectedMeridiem?.value);
+  
   const [solutionArray, setSolutionArray] = useState<string[]>();
-
-  const [isOpen, toggleOpen] = useCycle<boolean>(false, true)
-  // const {}
-  // const { timeArray, message } = useCalculateCycle({
-  //   time: "10:30 AM",
-  //   method: "asleepBy"
-  // });
-
 
   const handleChangeHours = (obj: SingleValue<{value: string, 
     label: string}>) => {
@@ -40,19 +37,21 @@ const TimePicker: React.FC<TimePickerProps> = ({method}) => {
     setSelectedMeridiem(obj);
   }
   const handleSubmitTime = () => {
-    // console.log(selectedHours?.value);
+    // ! https://codesandbox.io/s/framer-motion-notifications-5cvo9?file=/src/index.tsx
+    // use this example to implement an alert!
     if (selectedHours?.value === undefined || selectedMinutes?.value === undefined || selectedMeridiem?.value === undefined){
       return;
     }
+    if(selectedHours?.value === prevHours && selectedMinutes?.value === prevMinutes && selectedMeridiem?.value === prevMeridiem){
+      return;
+    }
+
     const {timeArray, message} = useCalculateCycle({
       time: `${selectedHours?.value}:${selectedMinutes?.value} ${selectedMeridiem?.value}`,
       method: method
     });
-    // console.table(timeArray);
-    // toggleOpen();
+  
     setSolutionArray(timeArray);
-    toggleOpen();
-
   };
 
 
@@ -89,41 +88,32 @@ const TimePicker: React.FC<TimePickerProps> = ({method}) => {
 
           <button
             // type='submit'
-            onClick={handleSubmitTime}
+            onClick={() => {
+              // setIsLoading(true)
+              handleSubmitTime()
+            }}
             className="p-2 bg-slate-100 rounded-md"
           >
             Calculate
           </button>
         </div>
-        {/* 
-          <p>
-            {selectedHours?.value ? selectedHours?.value : "pick something"}
-          </p>
-          <p>
-            {selectedMinutes?.value ? selectedMinutes?.value : "pick something"}
-          </p>
-          <p>
-            {selectedMeridiem?.value ? selectedMeridiem?.value : "pick something"}
-          </p> */
-        }
-        {/* <p>
-          {`${selectedHours?.value}:${selectedMinutes?.value} ${selectedMeridiem?.value}`}
-        </p> */}
-        {/* {
-          solutionArray ? <p>
-            {
-              method === "asleepBy" ? <span>You should wake up at one of these times</span> : <span>You go to sleep at one of these times</span>
-            }
-          </p> : <p></p>
-        } */}
 
-        {/* 
-          // ! create smaller component here, pass array and method as props
-        */}
       
-          {solutionArray ? <SolutionDisplay solutionArray={solutionArray} isOpen={isOpen} /> : <p>Pick a valid time!</p>}
+          {
+            solutionArray ? 
+            <SolutionDisplay solutionArray={solutionArray} /> 
+            : <p>Pick a valid time!</p>
+          }
+
+        {/* <SolutionDisplay solutionArray={solutionArray} /> */}
           
     
+
+
+
+
+
+
         {/* <p
           className=" text-xl pt-4 text-amber-800"
         > */}
