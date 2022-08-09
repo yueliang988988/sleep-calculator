@@ -9,22 +9,13 @@ import TimePicker from "../components/TimePicker";
 const Home: NextPage = () => {
   // trpc example
   // const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
-  // const { timeArray, message } = useCalculateCycle({
-  //   time: "10:30 AM",
-  //   method: "asleepBy"
-  // });
   
   return (
     <>
       <h2 className="text-2xl text-gray-800 p-4">I will be asleep by... </h2>
-
-      {/* <AsleepBy /> */}
       <TimePicker method="asleepBy" />
 
       <h2 className="text-2xl text-gray-800 p-4">I need to wake up at...</h2>
-
-      {/* <WakeUpAt /> */}
-
       <TimePicker method="wakeUpAt" />
 
       {/* ! trpc example */}
