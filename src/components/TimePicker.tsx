@@ -4,27 +4,19 @@ import Select, {SingleValue} from 'react-select';
 import SolutionDisplay from './SolutionDisplay';
 import { hoursSelect, minutesSelect, meridiemSelect } from '../utils/timeChoices';
 import usePrevious from '../utils/usePrevious';
-import { add, remove } from '../utils/notification-util';
 import {motion, AnimatePresence} from 'framer-motion'
 import { CloseButton } from './CloseButton';
-// import { ErrorMsg } from '../utils/notification-util';
+import { ErrorMsg, Notifications } from '../pages';
 
-
-
-export type TimePickerProps = {
+type TimePickerProps = {
   method: "asleepBy" | "wakeUpAt",
+  notifications: Notifications[],
+  setNotifications: React.Dispatch<React.SetStateAction<Notifications[]>>,
+  add: (arr: Notifications[], obj: ErrorMsg) => Notifications[],
+  remove: (arr: Notifications[], item: number) => Notifications[]
 };
 
-export interface ErrorMsg {
-  errorType: "no set time" | "enter new time",
-  message: "Enter a valid time!" | "Enter a new time!"
-}
-export interface Notifications extends ErrorMsg {
-  id: number,
-}
-
-
-const TimePicker: React.FC<TimePickerProps> = ({method}) => {
+const TimePicker: React.FC<TimePickerProps> = ({method, notifications, setNotifications, add, remove}) => {
   
   const [selectedHours, setSelectedHours] = useState<SingleValue<{value: string, 
     label: string}>>();
@@ -36,11 +28,6 @@ const TimePicker: React.FC<TimePickerProps> = ({method}) => {
     label: string}>>();
   const prevMeridiem = usePrevious(selectedMeridiem?.value);
   const [solutionArray, setSolutionArray] = useState<string[]>();
-
-
-
-  const [notifications, setNotifications] = useState<Notifications[]>([]);
-
 
 
   const handleChangeHours = (obj: SingleValue<{value: string, 
@@ -56,8 +43,6 @@ const TimePicker: React.FC<TimePickerProps> = ({method}) => {
     setSelectedMeridiem(obj);
   }
   const handleSubmitTime = () => {
-    // ! https://codesandbox.io/s/framer-motion-notifications-5cvo9?file=/src/index.tsx
-    // use this example to implement an alert!
     if (selectedHours?.value === undefined || 
       selectedMinutes?.value === undefined || 
       selectedMeridiem?.value === undefined){
@@ -78,12 +63,10 @@ const TimePicker: React.FC<TimePickerProps> = ({method}) => {
         setNotifications(add(notifications, msg));
         return;
     }
-
     const {timeArray, message} = useCalculateCycle({
       time: `${selectedHours?.value}:${selectedMinutes?.value} ${selectedMeridiem?.value}`,
       method: method
     });
-  
     setSolutionArray(timeArray);
   };
 
@@ -114,11 +97,9 @@ const TimePicker: React.FC<TimePickerProps> = ({method}) => {
                   <motion.div 
                     className='absolute bottom-0 left-0 right-0 h-[5px] rounded-b-md
                                   bg-gradient-to-r from-rose-400 to-purple-500'
-                    // initial={{ scaleX: "0%",}}
                     initial={{ width: "0%",}}
-                    // animate={{ scaleX: "100%", }}
                     animate={{ width: "100%", }}
-                    transition={{ duration: 2.2 }}
+                    transition={{ duration: 2.1 }}
                     onAnimationComplete={() => {
                       setNotifications(remove(notifications, notif.id))
                     }}
