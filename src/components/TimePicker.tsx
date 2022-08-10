@@ -17,7 +17,7 @@ export type TimePickerProps = {
 
 export interface ErrorMsg {
   errorType: "no set time" | "enter new time",
-  message: "enter a valid time!" | "enter a new time!"
+  message: "Enter a valid time!" | "Enter a new time!"
 }
 export interface Notifications extends ErrorMsg {
   id: number,
@@ -42,6 +42,7 @@ const TimePicker: React.FC<TimePickerProps> = ({method}) => {
   const [notifications, setNotifications] = useState<Notifications[]>([]);
 
 
+
   const handleChangeHours = (obj: SingleValue<{value: string, 
     label: string}>) => {
     setSelectedHours(obj);
@@ -62,7 +63,7 @@ const TimePicker: React.FC<TimePickerProps> = ({method}) => {
       selectedMeridiem?.value === undefined){
         const msg: ErrorMsg = {
           errorType: "no set time",
-          message: "enter a valid time!"
+          message: "Enter a valid time!"
         };
         setNotifications(add(notifications, msg));
         return;
@@ -72,7 +73,7 @@ const TimePicker: React.FC<TimePickerProps> = ({method}) => {
       selectedMeridiem?.value === prevMeridiem){
         const msg: ErrorMsg = {
           errorType: "enter new time",
-          message: "enter a new time!"
+          message: "Enter a new time!"
         };
         setNotifications(add(notifications, msg));
         return;
@@ -104,16 +105,26 @@ const TimePicker: React.FC<TimePickerProps> = ({method}) => {
                   key={notif.id}
                   // positionTransition
                   className={`relative w-60 m-3 flex-grow-0 flex-shrink-0 basis-24 
-                            bg-red-200 rounded-lg ${ notif.errorType === "no set time" ? "bg-blue-200" : "bg-purple-200"}`}
+                            rounded-md ${ notif.errorType === "no set time" ? "bg-blue-200" : "bg-purple-200"}`}
                   layout="position"
-                  initial={{ opacity: 0, y: 50, scale: 0.3 }}
+                  initial={{ opacity: 0, y: 20, scale: 0.3 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
                 >
+                  <motion.div 
+                    className='absolute bottom-0 left-0 right-0 h-[5px] rounded-b-md
+                                  bg-gradient-to-r from-rose-400 to-purple-500'
+                    // initial={{ scaleX: "0%",}}
+                    initial={{ width: "0%",}}
+                    // animate={{ scaleX: "100%", }}
+                    animate={{ width: "100%", }}
+                    transition={{ duration: 2.2 }}
+                    onAnimationComplete={() => {
+                      setNotifications(remove(notifications, notif.id))
+                    }}
+                  />
                   <p 
-                    className={`relative top-12 left-4 
-                              text-xl italic`} 
-                    
+                    className={`relative top-[34px] left-4 text-xl`} 
                   >
                     {notif.message}
                   </p>
