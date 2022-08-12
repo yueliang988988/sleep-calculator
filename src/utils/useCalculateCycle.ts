@@ -1,6 +1,6 @@
 // import React, {useState} from 'react';
 import date from 'date-and-time';
-import { TimePickerProps } from '../components/TimePicker';
+// import { TimePickerProps } from '../components/TimePicker';
 
 export type SleepCycleQuery = {
   time: string,

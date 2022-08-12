@@ -1,6 +1,8 @@
 import { NextPage } from 'next';
 import React from 'react'
-import { trpc } from "../utils/trpc";
+import GeneralInfoDisplay from '../components/GeneralInfoDisplay';
+import RecentNewsDisplay from '../components/RecentNewsDisplay';
+// import { trpc } from "../utils/trpc";
 
 /* 
 didUMean: ""
@@ -29,7 +31,7 @@ value: Array(10)
 // data.value[0].title === article title
 // 
 // data.value[0].url === article link
-// data.value[0].desciption === article link
+// data.value[0].description === article description
 // 
 
 // pattern - checking for data-availability first
@@ -38,24 +40,25 @@ value: Array(10)
 // if (error) return 'an error has occurred: ' + error.message
 // return <div>Loading...</div>
 const info: NextPage = () => {
-
+  
     // trpc example
-  const {data, isLoading, error} = trpc.useQuery(["example.hello"], {
-    staleTime: Infinity, 
-    // keepPreviousData: true,
-    // isDataEqual: () => true
-  });
+  // const {data, isLoading, error} = trpc.useQuery(["example.hello"], {
+  //   staleTime: Infinity, 
+  //   // keepPreviousData: true,
+  //   // isDataEqual: () => true
+  // });
   // console.table(hello.data);
-  console.table(data);
+  // console.table(data);
   return (
     <>
       
-      <h2 className='text-2xl text-gray-800 p-4'>info</h2>
-
+      {/* <h2 className='text-2xl text-gray-800 p-4'>info</h2> */}
+      <GeneralInfoDisplay />
             {/* ! trpc example */}
-      <div className="pt-6 px-4 text-2xl text-blue-500 w-full">
+      {/* <div className="pt-6 px-4 text-2xl text-blue-500 w-full"> */}
         {/* {hello.data ? <p>{hello.data}</p> : <p>Loading..</p>} */}
-      </div>
+      {/* </div> */}
+      <RecentNewsDisplay />
     </>
   )
 }
