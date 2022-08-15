@@ -21,7 +21,7 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
       </Head>
       <header
         className="container flex flex-col items-start justify-center mx-auto
-                    w-11/12 xl:w-4/5 2xl:w-3/5 p-4 bg-slate-100"
+                    sm:w-9/12 xl:w-3/5 2xl:w-3/5 p-4 bg-slate-100"
       >
 
         {/* navi */}
@@ -53,9 +53,12 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
 
       </header>
 
-      <main className="container flex flex-col items-start justify-start mx-auto 
-                        w-11/12 xl:w-4/5 2xl:w-3/5 p-4 min-h-[40vh] bg-slate-200">
-        {props.children}
+      <main className="container flex flex-col items-start justify-start 
+                        sm:w-9/12 xl:w-3/5 2xl:w-3/5 
+                        min-h-[40vh] 
+                        p-4 mx-auto 
+                        bg-blue-200">
+                          {props.children}
       </main>
     </>
   )
