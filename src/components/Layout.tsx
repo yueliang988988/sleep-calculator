@@ -34,7 +34,12 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
             <Link
               href="/info"
             >
-              <a className={`${router.pathname == "/" ? "" : "bg-slate-200 rounded-md" } p-4 hover:underline`}>info</a>
+              <a className={`${router.pathname == "/info" ? "bg-slate-200 rounded-md" : "" } p-4 hover:underline`}>info</a>
+            </Link>
+            <Link
+              href="/news"
+            >
+              <a className={`${router.pathname == "/news" ? "bg-slate-200 rounded-md" : "" } p-4 hover:underline`}>news</a>
             </Link>
         </nav>
 
