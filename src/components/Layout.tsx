@@ -20,8 +20,8 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header
-        className="container flex flex-col items-start justify-center mx-auto
-                    sm:w-9/12 xl:w-3/5 2xl:w-3/5 p-4 bg-slate-100"
+        className="flex flex-col items-start justify-start xs:mx-0 md:mx-auto
+                    xs:w-full md:w-9/12 xl:w-3/5 2xl:w-3/5 p-4 bg-slate-100"
       >
 
         {/* navi */}
@@ -44,8 +44,8 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
         </nav>
 
         <section className='flex flex-row items-center justify-start p-4'>
-          <h1 className="text-[1.5rem] md:text-[3rem] lg:text-[3rem] 
-                        leading-normal font-extrabold text-gray-700"
+          <h1 className="lg:text-5xl md:text-4xl sm:text-4xl xs:text-2xl
+                        font-extrabold text-gray-700"
           >
               Sleep <span className="text-purple-300">Cycle</span> Calculator
           </h1>
@@ -53,10 +53,10 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
 
       </header>
 
-      <main className="container flex flex-col items-start justify-start 
-                        sm:w-9/12 xl:w-3/5 2xl:w-3/5 
+      <main className="flex flex-col xs:items-center xs:justify-center items-start justify-start 
+                        xs:w-full md:w-9/12 xl:w-3/5 2xl:w-3/5 
                         min-h-[40vh] 
-                        p-4 mx-auto 
+                        p-4 xs:mx-0 md:mx-auto
                         bg-blue-200">
                           {props.children}
       </main>

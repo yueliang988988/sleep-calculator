@@ -82,7 +82,7 @@ const info: NextPage = () => {
         </p>
       </div>
 
-      <SleepStagesGrid />
+      {/* <SleepStagesGrid /> */}
 
       <p className=''>
         Experts suggest the deeper stages of sleep are critical for overall body restoration, healthy cognitive function, 

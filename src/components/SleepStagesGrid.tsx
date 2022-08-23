@@ -2,7 +2,7 @@ import React from 'react'
 
 const SleepStagesGrid: React.FC = () => {
   return (
-    <div className='grid grid-cols-layout grid-rows-layout w-[600px] max-h-96 self-center'>
+    <div className='grid grid-cols-layout grid-rows-layout max-h-96 self-center'>
 
         <div
           className='bg-slate-200 rounded-tl-md border-black border-b-2 border-r p-1 py-2'
