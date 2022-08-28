@@ -6,7 +6,7 @@ module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
-      'xs': '350px',
+      'xs': '330px',
       ...defaultTheme.screens,
       // '2xl': {'max': '1535px'},
       // // => @media (max-width: 1535px) { ... }
@@ -28,10 +28,10 @@ module.exports = {
     },
     extend: {
       gridTemplateRows: {
-        'layout': '45px 1fr 1fr 1fr 1fr'
+        'layout': '50px 100px 100px 140px 110px'
       },
       gridTemplateColumns: {
-        'layout': '120px 1fr 1fr 45%'
+        'layout': '100px 100px 100px 240px'
       }
     },
   },

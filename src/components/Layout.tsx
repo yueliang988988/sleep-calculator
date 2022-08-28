@@ -20,26 +20,28 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header
-        className="flex flex-col items-start justify-start xs:mx-0 md:mx-auto
-                    xs:w-full md:w-9/12 xl:w-3/5 2xl:w-3/5 p-4 bg-slate-100"
+        className="flex flex-col items-start justify-start 
+                    xs:mx-0 md:mx-auto p-2 
+                    xs:w-full md:w-9/12 xl:w-3/5 2xl:w-3/5 
+                    bg-slate-100"
       >
 
         {/* navi */}
-        <nav className={`flex flex-row items-center justify-start h-20 px-4 py-1 gap-8`}>
+        <nav className={`flex flex-row items-center justify-start h-20 px-3 py-1 gap-8`}>
             <Link
               href="/"
             >
-              <a className={`${router.pathname == "/" ? "bg-slate-200 rounded-md" : "" } p-4 hover:underline`}>sleep</a>
+              <a className={`${router.pathname == "/" ? "font-bold underline" : "" } p-2 hover:underline`}>sleep</a>
             </Link>
             <Link
               href="/info"
             >
-              <a className={`${router.pathname == "/info" ? "bg-slate-200 rounded-md" : "" } p-4 hover:underline`}>info</a>
+              <a className={`${router.pathname == "/info" ? "font-bold underline" : "" } p-2 hover:underline`}>info</a>
             </Link>
             <Link
               href="/news"
             >
-              <a className={`${router.pathname == "/news" ? "bg-slate-200 rounded-md" : "" } p-4 hover:underline`}>news</a>
+              <a className={`${router.pathname == "/news" ? "font-bold underline" : "" } p-2 hover:underline`}>news</a>
             </Link>
         </nav>
 

@@ -54,7 +54,7 @@ const info: NextPage = () => {
     <>
     <div
       className='flex flex-col justify-start items-start gap-20 
-                  min-h-[300px]
+                  min-h-[300px] w-full
                   p-4
                   bg-blue-300'
     >
@@ -82,7 +82,7 @@ const info: NextPage = () => {
         </p>
       </div>
 
-      {/* <SleepStagesGrid /> */}
+      <SleepStagesGrid />
 
       <p className=''>
         Experts suggest the deeper stages of sleep are critical for overall body restoration, healthy cognitive function, 
