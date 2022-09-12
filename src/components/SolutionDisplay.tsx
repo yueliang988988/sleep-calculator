@@ -8,11 +8,12 @@ type SolutionDisplayProps = {
 const SolutionDisplay: React.FC<SolutionDisplayProps> = ({solutionArray}) => {
   
   return (
-  <div className='flex flex-row justify-start items-start gap-4'>
+  <div className='flex flex-row justify-start items-start gap-4 flex-wrap'>
 
       <AnimatePresence exitBeforeEnter>
             <motion.div
               key={solutionArray[0]}
+              className="italic font-bold font-serif text-lg text-red-700"
               initial={{
                 y: 10,
                 opacity: 0,
@@ -38,6 +39,7 @@ const SolutionDisplay: React.FC<SolutionDisplayProps> = ({solutionArray}) => {
       <AnimatePresence exitBeforeEnter>
             <motion.div
               key={solutionArray[1]}
+              className="italic font-bold font-serif text-lg text-orange-700"
               initial={{
                 y: 10,
                 opacity: 0,
@@ -63,6 +65,7 @@ const SolutionDisplay: React.FC<SolutionDisplayProps> = ({solutionArray}) => {
             <AnimatePresence exitBeforeEnter>
             <motion.div
               key={solutionArray[2]}
+              className="italic font-bold font-serif text-lg text-orange-600"
               initial={{
                 y: 10,
                 opacity: 0,
@@ -88,6 +91,7 @@ const SolutionDisplay: React.FC<SolutionDisplayProps> = ({solutionArray}) => {
       <AnimatePresence exitBeforeEnter>
             <motion.div
               key={solutionArray[3]}
+              className="italic font-bold font-serif text-lg text-yellow-500"
               initial={{
                 y: 10,
                 opacity: 0,
@@ -113,6 +117,7 @@ const SolutionDisplay: React.FC<SolutionDisplayProps> = ({solutionArray}) => {
       <AnimatePresence exitBeforeEnter>
             <motion.div
               key={solutionArray[4]}
+              className="italic font-bold font-serif text-lg text-lime-500"
               initial={{
                 y: 10,
                 opacity: 0,
@@ -138,6 +143,7 @@ const SolutionDisplay: React.FC<SolutionDisplayProps> = ({solutionArray}) => {
       <AnimatePresence exitBeforeEnter>
             <motion.div
               key={solutionArray[5]}
+              className="italic font-bold font-serif text-lg text-lime-500"
               initial={{
                 y: 10,
                 opacity: 0,
@@ -163,6 +169,7 @@ const SolutionDisplay: React.FC<SolutionDisplayProps> = ({solutionArray}) => {
       <AnimatePresence exitBeforeEnter>
             <motion.div
               key={solutionArray[6]}
+              className="italic font-bold font-serif text-lg text-lime-500"
               initial={{
                 y: 10,
                 opacity: 0,

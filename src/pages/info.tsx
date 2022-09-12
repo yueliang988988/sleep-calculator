@@ -55,14 +55,13 @@ const info: NextPage = () => {
     <div
       className='flex flex-col justify-start items-start gap-20 
                   min-h-[300px] w-full
-                  p-4
-                  bg-blue-300'
+                  p-4'
     >
       <div>
         <h2 className='text-2xl mb-1'>
           What are sleep cycles?
         </h2>
-        <p className=''>
+        <p className=' my-6'>
           Over the course of a night's rest, your sleep is made up of one or more cycles of 4 distinct stages of sleep, 
           each with their own defining characteristics. Each stage has a tell-tale combination of brain wave signatures, 
           motor activity levels, and breathing and heart rates. Your body can go through each stage at varying durations 
@@ -76,7 +75,7 @@ const info: NextPage = () => {
         <h3 className='text-xl mb-1'>
           What are the stages?
         </h3>
-        <p className=''>
+        <p className=' mt-6 mb-[-1rem]'>
           The 4 stages are comprised of 1 rapid eye movement (REM) stage and 3 non rapid eye movement (NREM) stages. 
           They each have a depth, which indicates how difficult it is to wake someone during that stage.
         </p>
@@ -94,7 +93,7 @@ const info: NextPage = () => {
         <h3 className='text-xl mb-1'>
           What's the calculator for?
         </h3>
-        <p className=''>
+        <p className='my-6'>
           The aim is to approximate a specific sleep time or wake up time to allow yourself to wake up at a light stage of sleep. 
           It seems helpful to try to avoid interrupting deeper sleep stages. 
           In doing so, you might find yourself able to wake up easier and feel less groggy.

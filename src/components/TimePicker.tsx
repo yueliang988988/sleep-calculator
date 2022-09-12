@@ -74,8 +74,7 @@ const TimePicker: React.FC<TimePickerProps> = ({method, notifications, setNotifi
   return (
     <div
         className=" flex flex-col items-start justify-start 
-                    gap-8 p-4 min-h-[200px] 
-                    bg-gradient-to-br from-purple-300 to-pink-200"
+                    gap-8 p-4 min-h-[200px] w-full" 
       >
         <ul 
           className="p-0 m-0 fixed bottom-0 right-0 top-0 
@@ -119,7 +118,7 @@ const TimePicker: React.FC<TimePickerProps> = ({method, notifications, setNotifi
           </AnimatePresence>
         </ul>
         <div
-          className='flex flex-row items-start justify-start gap-4'
+          className='flex flex-row items-start justify-start gap-4 flex-wrap'
         >
 
           <Select 

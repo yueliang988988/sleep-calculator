@@ -24,7 +24,7 @@ const RecentNewsDisplay: React.FC = () => {
     <div
       className='flex flex-col justify-start items-start gap-4 p-2 w-full min-h-[300px]'
     >
-      <h2 className=''>
+      <h2 className='text-2xl text-gray-800 p-2'>
         Recent Articles
       </h2>
 

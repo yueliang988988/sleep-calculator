@@ -21,9 +21,8 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
       </Head>
       <header
         className="flex flex-col items-start justify-start 
-                    xs:mx-0 md:mx-auto p-2 
-                    xs:w-full md:w-9/12 xl:w-3/5 2xl:w-3/5 
-                    bg-slate-100"
+                    xs:mx-0 md:mx-auto py-1 px-2 
+                    xs:w-full md:w-9/12 xl:w-3/5 2xl:w-3/5"
       >
 
         {/* navi */}
@@ -31,22 +30,22 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
             <Link
               href="/"
             >
-              <a className={`${router.pathname == "/" ? "font-bold underline" : "" } p-2 hover:underline`}>sleep</a>
+              <a className={`${router.pathname == "/" ? "underline bg-slate-100 rounded-md" : "" } p-2 `}>sleep</a>
             </Link>
             <Link
               href="/info"
             >
-              <a className={`${router.pathname == "/info" ? "font-bold underline" : "" } p-2 hover:underline`}>info</a>
+              <a className={`${router.pathname == "/info" ? "underline bg-slate-100 rounded-md" : "" } p-2 `}>info</a>
             </Link>
             <Link
               href="/news"
             >
-              <a className={`${router.pathname == "/news" ? "font-bold underline" : "" } p-2 hover:underline`}>news</a>
+              <a className={`${router.pathname == "/news" ? "underline bg-slate-100 rounded-md" : "" } p-2 `}>news</a>
             </Link>
         </nav>
 
         <section className='flex flex-row items-center justify-start p-4'>
-          <h1 className="lg:text-5xl md:text-4xl sm:text-4xl xs:text-2xl
+          <h1 className="lg:text-5xl md:text-4xl sm:text-4xl xs:text-3xl
                         font-extrabold text-gray-700"
           >
               Sleep <span className="text-purple-300">Cycle</span> Calculator
@@ -59,7 +58,7 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
                         xs:w-full md:w-9/12 xl:w-3/5 2xl:w-3/5 
                         min-h-[40vh] 
                         p-4 xs:mx-0 md:mx-auto
-                        bg-blue-200">
+                        ">
                           {props.children}
       </main>
     </>
