@@ -21,8 +21,7 @@ export const CloseButton: React.FC<ClostButtonProp> = ({ close, color }) => (
   <button 
     onClick={close} 
     className={`outline-none appearance-none cursor-pointer
-              absolute top-3 right-3 border-none
-              ${color === "no set time" ? "bg-blue-200" : "bg-purple-200"}`}
+              absolute top-3 right-3 border-none bg-slate-100`}
   >
     <svg width="18" height="18" viewBox="0 0 23 23">
       <Path d="M 3 16.5 L 17 2.5" />

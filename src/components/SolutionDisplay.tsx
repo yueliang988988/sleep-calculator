@@ -1,18 +1,23 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import {SolutionArrayMsg} from './TimePicker'
 
+// type SolutionDisplayProps = {
+//   solutionArray: string[]
+// }
 type SolutionDisplayProps = {
-  solutionArray: string[]
+  solutionArrayMsg: SolutionArrayMsg
 }
 
-const SolutionDisplay: React.FC<SolutionDisplayProps> = ({solutionArray}) => {
+const SolutionDisplay: React.FC<SolutionDisplayProps> = ({solutionArrayMsg}) => {
   
   return (
+    <>
   <div className='flex flex-row justify-start items-start gap-4 flex-wrap'>
 
       <AnimatePresence exitBeforeEnter>
             <motion.div
-              key={solutionArray[0]}
+              key={solutionArrayMsg.solArray[0]}
               className="italic font-bold font-serif text-lg text-red-700"
               initial={{
                 y: 10,
@@ -33,12 +38,12 @@ const SolutionDisplay: React.FC<SolutionDisplayProps> = ({solutionArray}) => {
                 opacity: 0 
               }}
             >
-              {solutionArray[0]}
+              {solutionArrayMsg.solArray[0]}
             </motion.div>
       </AnimatePresence>
       <AnimatePresence exitBeforeEnter>
             <motion.div
-              key={solutionArray[1]}
+              key={solutionArrayMsg.solArray[1]}
               className="italic font-bold font-serif text-lg text-orange-700"
               initial={{
                 y: 10,
@@ -59,12 +64,12 @@ const SolutionDisplay: React.FC<SolutionDisplayProps> = ({solutionArray}) => {
                 opacity: 0 
               }}
             >
-              {solutionArray[1]}
+              {solutionArrayMsg.solArray[1]}
             </motion.div>
       </AnimatePresence>
             <AnimatePresence exitBeforeEnter>
             <motion.div
-              key={solutionArray[2]}
+              key={solutionArrayMsg.solArray[2]}
               className="italic font-bold font-serif text-lg text-orange-600"
               initial={{
                 y: 10,
@@ -85,12 +90,12 @@ const SolutionDisplay: React.FC<SolutionDisplayProps> = ({solutionArray}) => {
                 opacity: 0 
               }}
             >
-              {solutionArray[2]}
+              {solutionArrayMsg.solArray[2]}
             </motion.div>
       </AnimatePresence>
       <AnimatePresence exitBeforeEnter>
             <motion.div
-              key={solutionArray[3]}
+              key={solutionArrayMsg.solArray[3]}
               className="italic font-bold font-serif text-lg text-yellow-500"
               initial={{
                 y: 10,
@@ -111,12 +116,12 @@ const SolutionDisplay: React.FC<SolutionDisplayProps> = ({solutionArray}) => {
                 opacity: 0 
               }}
             >
-              {solutionArray[3]}
+              {solutionArrayMsg.solArray[3]}
             </motion.div>
       </AnimatePresence>
       <AnimatePresence exitBeforeEnter>
             <motion.div
-              key={solutionArray[4]}
+              key={solutionArrayMsg.solArray[4]}
               className="italic font-bold font-serif text-lg text-lime-500"
               initial={{
                 y: 10,
@@ -137,12 +142,12 @@ const SolutionDisplay: React.FC<SolutionDisplayProps> = ({solutionArray}) => {
                 opacity: 0 
               }}
             >
-              {solutionArray[4]}
+              {solutionArrayMsg.solArray[4]}
             </motion.div>
       </AnimatePresence>
       <AnimatePresence exitBeforeEnter>
             <motion.div
-              key={solutionArray[5]}
+              key={solutionArrayMsg.solArray[5]}
               className="italic font-bold font-serif text-lg text-lime-500"
               initial={{
                 y: 10,
@@ -163,12 +168,12 @@ const SolutionDisplay: React.FC<SolutionDisplayProps> = ({solutionArray}) => {
                 opacity: 0 
               }}
             >
-              {solutionArray[5]}
+              {solutionArrayMsg.solArray[5]}
             </motion.div>
       </AnimatePresence>
       <AnimatePresence exitBeforeEnter>
             <motion.div
-              key={solutionArray[6]}
+              key={solutionArrayMsg.solArray[6]}
               className="italic font-bold font-serif text-lg text-lime-500"
               initial={{
                 y: 10,
@@ -189,11 +194,39 @@ const SolutionDisplay: React.FC<SolutionDisplayProps> = ({solutionArray}) => {
                 opacity: 0 
               }}
             >
-              {solutionArray[6]}
+              {solutionArrayMsg.solArray[6]}
             </motion.div>
       </AnimatePresence>
 
   </div>
+  <AnimatePresence exitBeforeEnter>
+    <motion.p 
+      key={solutionArrayMsg.solMsg}
+      className=' mt-[-1rem] text-lg'
+      initial={{
+        y: 10,
+        opacity: 0,
+      }}
+      transition={{
+        delay: 0.75,
+        y: {
+          stiffness: 1000, velocity: -100
+        }
+      }}
+      animate={{
+        opacity: 1,
+        y: 0
+      }}
+      exit={{ 
+        y: -10,
+        opacity: 0 
+      }}
+
+    >
+                {solutionArrayMsg.solMsg}
+    </motion.p>
+  </AnimatePresence>
+  </>
   )
 }
 

@@ -22,7 +22,7 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
       <header
         className="flex flex-col items-start justify-start 
                     xs:mx-0 md:mx-auto py-1 px-2 
-                    xs:w-full md:w-9/12 xl:w-3/5 2xl:w-3/5"
+                    xs:w-full md:w-3/5 xl:w-[45%] 2xl:w-[45%]"
       >
 
         {/* navi */}
@@ -55,7 +55,7 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
       </header>
 
       <main className="flex flex-col xs:items-center xs:justify-center items-start justify-start 
-                        xs:w-full md:w-9/12 xl:w-3/5 2xl:w-3/5 
+                        xs:w-full md:w-3/5 xl:w-[45%] 2xl:w-[45%]
                         min-h-[40vh] 
                         p-4 xs:mx-0 md:mx-auto
                         ">

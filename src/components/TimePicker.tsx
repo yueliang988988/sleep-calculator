@@ -16,6 +16,12 @@ type TimePickerProps = {
   remove: (arr: Notifications[], item: number) => Notifications[]
 };
 
+export type SolutionArrayMsg = {
+  solArray: string[],
+  solMsg: string
+
+}
+
 const TimePicker: React.FC<TimePickerProps> = ({method, notifications, setNotifications, add, remove}) => {
   
   const [selectedHours, setSelectedHours] = useState<SingleValue<{value: string, 
@@ -27,7 +33,9 @@ const TimePicker: React.FC<TimePickerProps> = ({method, notifications, setNotifi
   const [selectedMeridiem, setSelectedMeridiem] = useState<SingleValue<{value: string, 
     label: string}>>();
   const prevMeridiem = usePrevious(selectedMeridiem?.value);
+
   const [solutionArray, setSolutionArray] = useState<string[]>();
+  const [solutionArrayMsg, setSolutionArrayMsg] = useState<SolutionArrayMsg>();
 
 
   const handleChangeHours = (obj: SingleValue<{value: string, 
@@ -68,6 +76,8 @@ const TimePicker: React.FC<TimePickerProps> = ({method, notifications, setNotifi
       method: method
     });
     setSolutionArray(timeArray);
+    // const sol: SolutionArrayMsg = { solArray: timeArray, solMsg: message}
+    setSolutionArrayMsg({ solArray: timeArray, solMsg: message})
   };
 
 
@@ -87,15 +97,15 @@ const TimePicker: React.FC<TimePickerProps> = ({method, notifications, setNotifi
                   key={notif.id}
                   // positionTransition
                   className={`relative w-60 m-3 flex-grow-0 flex-shrink-0 basis-24 
-                            rounded-md ${ notif.errorType === "no set time" ? "bg-blue-200" : "bg-purple-200"}`}
+                            rounded-md bg-slate-100`}
                   layout="position"
                   initial={{ opacity: 0, y: 20, scale: 0.3 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
                 >
                   <motion.div 
-                    className='absolute bottom-0 left-0 right-0 h-[5px] rounded-b-md
-                                  bg-gradient-to-r from-rose-400 to-purple-500'
+                    className={`absolute bottom-0 left-0 right-0 h-[5px] rounded-b-md
+                                  bg-gradient-to-r from-rose-400 to-blue-400`}
                     initial={{ width: "0%",}}
                     animate={{ width: "100%", }}
                     transition={{ duration: 2.1 }}
@@ -158,8 +168,8 @@ const TimePicker: React.FC<TimePickerProps> = ({method, notifications, setNotifi
 
       
         {
-          solutionArray ? 
-          <SolutionDisplay solutionArray={solutionArray} /> 
+          solutionArrayMsg ? 
+          <SolutionDisplay solutionArrayMsg={solutionArrayMsg} /> 
           : <p>Pick a valid time!</p>
         }
 
