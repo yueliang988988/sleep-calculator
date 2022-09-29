@@ -11,13 +11,13 @@ import ArticleCard from './ArticleCard';
 const RecentNewsDisplay: React.FC = () => {
 
       // trpc example
-  // const {data, isLoading, error} = trpc.useQuery(["example.hello"], {
-  //   staleTime: Infinity, 
+  const {data, isLoading, error} = trpc.useQuery(["example.hello"], {
+    staleTime: Infinity, 
   //   // keepPreviousData: true,
   //   // isDataEqual: () => true
-  // });
+  });
   // console.table(hello.data);
-  // console.table(data);
+  console.table(data);
 
   return (
 
@@ -31,7 +31,7 @@ const RecentNewsDisplay: React.FC = () => {
       <div
         className='flex flex-col justify-start items-start gap-4 p-2 w-full'
       >
-        {dummyData.map( article => (
+        {data.value.map( (article: { title: string; description: string; datePublished: string; url: string; }) => (
           <ArticleCard
             key={article.title}
             title={article.title}

@@ -1,4 +1,6 @@
 import React from 'react';
+// import { date } from 'zod';
+import date from 'date-and-time';
 
 type ArticleCardProps = {
   title: string,
@@ -8,6 +10,8 @@ type ArticleCardProps = {
 }
 
 const ArticleCard: React.FC<ArticleCardProps> = ({title, description, datePublished, url}) => {
+  let patternOld = date.compile('YYYY-MM-DD');
+  let patternNew = date.compile('MMM DD, YYYY');
   return (
     <div
       className='flex flex-col justify-start items-start gap-1 px-4 py-3 w-full
@@ -24,7 +28,10 @@ const ArticleCard: React.FC<ArticleCardProps> = ({title, description, datePublis
       <p
         className="text-sm text-gray-500"
       >
-        {datePublished} --- <u>{url}</u>
+        {/* 
+          slice the date we need off the data, and transform the date into desired format/pattern
+        */}
+        {date.transform(datePublished.slice(0, 10), patternOld, patternNew)} --- <u>{url}</u>
       </p>
     </div>
   )
