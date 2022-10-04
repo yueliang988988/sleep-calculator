@@ -20,37 +20,46 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header
-        className="container flex flex-col items-start justify-center mx-auto
-                    w-11/12 xl:w-4/5 2xl:w-3/5 p-4 bg-slate-200"
+        className="flex flex-col items-start justify-start 
+                    xs:mx-0 md:mx-auto py-1 px-2 
+                    xs:w-full md:w-3/5 xl:w-[45%] 2xl:w-[45%]"
       >
 
         {/* navi */}
-        <nav className={`flex flex-row items-center justify-start h-20 px-4 py-1 gap-8`}>
+        <nav className={`flex flex-row items-center justify-start h-20 px-3 py-1 gap-8`}>
             <Link
               href="/"
             >
-              <a className={`${router.pathname == "/" ? "bg-slate-300 rounded-md" : "" } p-4 hover:underline`}>sleep</a>
+              <a className={`${router.pathname == "/" ? "underline bg-slate-100 rounded-md" : "" } p-2 `}>sleep</a>
             </Link>
             <Link
               href="/info"
             >
-              <a className={`${router.pathname == "/" ? "" : "bg-slate-300 rounded-md" } p-4 hover:underline`}>info</a>
+              <a className={`${router.pathname == "/info" ? "underline bg-slate-100 rounded-md" : "" } p-2 `}>info</a>
+            </Link>
+            <Link
+              href="/news"
+            >
+              <a className={`${router.pathname == "/news" ? "underline bg-slate-100 rounded-md" : "" } p-2 `}>news</a>
             </Link>
         </nav>
 
         <section className='flex flex-row items-center justify-start p-4'>
-          <h1 className="text-[1.5rem] md:text-[3rem] lg:text-[3rem] 
-                        leading-normal font-extrabold text-gray-700"
+          <h1 className="lg:text-5xl md:text-4xl sm:text-4xl xs:text-3xl
+                        font-extrabold text-gray-700"
           >
-              Sleep <span className="text-purple-300">Cycle</span> Calculator
+              Sleep <span className="bg-gradient-to-r from-red-500 to-green-500 text-transparent bg-clip-text">Cycle</span> Calculator
           </h1>
         </section>
 
       </header>
 
-      <main className="container flex flex-col items-start justify-start mx-auto 
-                        w-11/12 xl:w-4/5 2xl:w-3/5 p-4 min-h-[40vh] bg-slate-400">
-        {props.children}
+      <main className="flex flex-col xs:items-center xs:justify-center items-start justify-start 
+                        xs:w-full md:w-3/5 xl:w-[45%] 2xl:w-[45%]
+                        min-h-[40vh] 
+                        p-4 xs:mx-0 md:mx-auto
+                        ">
+                          {props.children}
       </main>
     </>
   )

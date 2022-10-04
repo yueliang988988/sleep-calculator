@@ -1,31 +1,41 @@
 import type { NextPage } from "next";
-import AsleepBy from "../components/AsleepBy";
-import WakeUpAt from "../components/WakeUpAt";
-import { trpc } from "../utils/trpc";
-// import useCalculateCycle, {SleepCycleQuery, SleepCycleResult} from "../utils/useCalculateCycle";
+import React, {useState} from 'react'
+import TimePicker from "../components/TimePicker";
+import { add, remove } from "../utils/notification-util";
 
+export interface ErrorMsg {
+  errorType: "no set time" | "enter new time",
+  message: "Enter a valid time!" | "Enter a new time!"
+}
+export interface Notifications extends ErrorMsg {
+  id: number,
+}
 
 const Home: NextPage = () => {
-  // trpc example
-  // const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
-  // const { timeArray, message } = useCalculateCycle({
-  //   time: "10:30 AM",
-  //   method: "asleepBy"
-  // });
-  
+
+  const [notifications, setNotifications] = useState<Notifications[]>([]);
+
   return (
     <>
-      <h2 className="text-2xl text-gray-800 p-4">I will be asleep by 10:30 AM... </h2>
+      <h2 className="text-2xl text-gray-800 p-4 self-start">I will be asleep by... </h2>
+      <TimePicker 
+        method="asleepBy"
+        notifications={notifications}
+        setNotifications={setNotifications}
+        add={add}
+        remove={remove}
+      />
 
-      <AsleepBy />
+      <h2 className="text-2xl text-gray-800 p-4 self-start mt-8">I need to wake up at...</h2>
+      <TimePicker 
+        method="wakeUpAt"
+        notifications={notifications}
+        setNotifications={setNotifications}
+        add={add}
+        remove={remove}
+      />
 
-      <h2 className="text-2xl text-gray-800 p-4">I need to wake up at 8:00 AM...</h2>
 
-      <WakeUpAt />
-      {/* ! trpc example */}
-      {/* <div className="pt-6 px-4 text-2xl text-blue-500 w-full">
-        {hello.data ? <p>{hello.data.greeting}</p> : <p>Loading..</p>}
-      </div> */}
     </>
   );
 };
