@@ -2,6 +2,7 @@ import React from 'react';
 import { trpc } from '../utils/trpc';
 import {dummyData} from '../utils/fakeNews';
 import ArticleCard from './ArticleCard';
+import LoadingNews from './LoadingNews';
 
 
 // interface RecentNewsDisplayProps {
@@ -19,15 +20,9 @@ const RecentNewsDisplay: React.FC = () => {
   // console.table(hello.data);
   console.table(data);
 
+  if (isLoading) return <LoadingNews />
+
   return (
-
-    <div
-      className='flex flex-col justify-start items-start gap-4 p-2 w-full min-h-[300px]'
-    >
-      <h2 className='text-2xl text-gray-800 p-2'>
-        Recent Articles
-      </h2>
-
       <div
         className='flex flex-col justify-start items-start gap-4 p-2 w-full'
       >
@@ -41,9 +36,6 @@ const RecentNewsDisplay: React.FC = () => {
           />
         ))}
       </div>
-
-    </div>
-
   )
 }
 

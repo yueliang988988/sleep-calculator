@@ -105,7 +105,7 @@ const TimePicker: React.FC<TimePickerProps> = ({method, notifications, setNotifi
                 >
                   <motion.div 
                     className={`absolute bottom-0 left-0 right-0 h-[5px] rounded-b-md
-                                  bg-gradient-to-r from-rose-400 to-blue-400`}
+                                bg-rose-400`}
                     initial={{ width: "0%",}}
                     animate={{ width: "100%", }}
                     transition={{ duration: 2.1 }}

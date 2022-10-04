@@ -48,7 +48,7 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
           <h1 className="lg:text-5xl md:text-4xl sm:text-4xl xs:text-3xl
                         font-extrabold text-gray-700"
           >
-              Sleep <span className="text-purple-300">Cycle</span> Calculator
+              Sleep <span className="bg-gradient-to-r from-red-500 to-green-500 text-transparent bg-clip-text">Cycle</span> Calculator
           </h1>
         </section>
 

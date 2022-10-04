@@ -26,7 +26,7 @@ const Home: NextPage = () => {
         remove={remove}
       />
 
-      <h2 className="text-2xl text-gray-800 p-4 self-start">I need to wake up at...</h2>
+      <h2 className="text-2xl text-gray-800 p-4 self-start mt-8">I need to wake up at...</h2>
       <TimePicker 
         method="wakeUpAt"
         notifications={notifications}

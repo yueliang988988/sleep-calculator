@@ -200,7 +200,7 @@ const SolutionDisplay: React.FC<SolutionDisplayProps> = ({solutionArrayMsg}) => 
 
   </div>
   <AnimatePresence exitBeforeEnter>
-    <motion.p 
+    <motion.u 
       key={solutionArrayMsg.solMsg}
       className=' mt-[-1rem] text-lg'
       initial={{
@@ -224,7 +224,7 @@ const SolutionDisplay: React.FC<SolutionDisplayProps> = ({solutionArrayMsg}) => 
 
     >
                 {solutionArrayMsg.solMsg}
-    </motion.p>
+    </motion.u>
   </AnimatePresence>
   </>
   )
