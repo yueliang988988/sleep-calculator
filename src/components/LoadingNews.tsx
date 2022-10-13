@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 const LoadingNews = () => {
 
   return (
-
   <>
       <div
         className='flex flex-col justify-center items-center gap-4 p-2 w-full'

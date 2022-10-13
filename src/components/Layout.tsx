@@ -10,7 +10,6 @@ type LayoutProps = {
 const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
 
   const router = useRouter();
-  // console.log(router.pathname);
 
   return (
     <>
@@ -44,6 +43,7 @@ const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
             </Link>
         </nav>
 
+        {/* Title Heading */}
         <section className='flex flex-row items-center justify-start p-4'>
           <h1 className="lg:text-5xl md:text-4xl sm:text-4xl xs:text-3xl
                         font-extrabold text-gray-700"

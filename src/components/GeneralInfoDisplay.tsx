@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'next/link';
 
 type Props = {}
 
@@ -35,10 +34,6 @@ const GeneralInfoDisplay: React.FC<Props> = (props: Props) => {
         The 4 stages are comprised of 1 rapid eye movement (REM) stage and 3 non rapid eye movement (NREM) stages. 
         They each have a depth, which indicates how difficult it is to wake someone during that stage.
       </p>
-
-      <div className='grid'>
-
-      </div>
 
       <p className=''>
         Experts suggest the deeper stages of sleep are critical for overall body restoration, healthy cognitive function, 

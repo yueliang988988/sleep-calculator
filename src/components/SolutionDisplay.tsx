@@ -2,9 +2,6 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {SolutionArrayMsg} from './TimePicker'
 
-// type SolutionDisplayProps = {
-//   solutionArray: string[]
-// }
 type SolutionDisplayProps = {
   solutionArrayMsg: SolutionArrayMsg
 }

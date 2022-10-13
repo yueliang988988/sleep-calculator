@@ -76,7 +76,6 @@ const TimePicker: React.FC<TimePickerProps> = ({method, notifications, setNotifi
       method: method
     });
     setSolutionArray(timeArray);
-    // const sol: SolutionArrayMsg = { solArray: timeArray, solMsg: message}
     setSolutionArrayMsg({ solArray: timeArray, solMsg: message})
   };
 
@@ -95,7 +94,6 @@ const TimePicker: React.FC<TimePickerProps> = ({method, notifications, setNotifi
               notifications.map( notif => (
                 <motion.li
                   key={notif.id}
-                  // positionTransition
                   className={`relative w-60 m-3 flex-grow-0 flex-shrink-0 basis-24 
                             rounded-md bg-slate-100`}
                   layout="position"
@@ -134,30 +132,24 @@ const TimePicker: React.FC<TimePickerProps> = ({method, notifications, setNotifi
           <Select 
             options={hoursSelect}
             instanceId={"hours"}
-            // className="rounded-2xl"
-            // className="w-20"
             onChange={(option) => handleChangeHours(option)}
             blurInputOnSelect
           />
           <Select 
             options={minutesSelect}
             instanceId={"minutes"}
-            // className="w-20"
             onChange={(option) => handleChangeMinutes(option)}
             blurInputOnSelect
           />
           <Select 
             options={meridiemSelect}
             instanceId={"meridiem"}
-            // className="w-20"
             onChange={(option) => handleChangeMeridiem(option)}
             blurInputOnSelect
           />
 
           <button
-            // type='submit'
             onClick={() => {
-              // setIsLoading(true)
               handleSubmitTime()
             }}
             className="p-2 bg-slate-100 rounded-md"
@@ -172,13 +164,6 @@ const TimePicker: React.FC<TimePickerProps> = ({method, notifications, setNotifi
           <SolutionDisplay solutionArrayMsg={solutionArrayMsg} /> 
           : <p>Pick a valid time!</p>
         }
-
-        {/* <p
-          className=" text-xl pt-4 text-amber-800"
-        > */}
-          {/* {message} */}
-        {/* </p> */}
-
       </div>
   )
 }

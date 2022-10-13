@@ -5,20 +5,11 @@ import ArticleCard from './ArticleCard';
 import LoadingNews from './LoadingNews';
 
 
-// interface RecentNewsDisplayProps {
-//   articles: Object[]
-// }
-
 const RecentNewsDisplay: React.FC = () => {
 
-      // trpc example
   const {data, isLoading, error} = trpc.useQuery(["example.hello"], {
     staleTime: Infinity, 
-  //   // keepPreviousData: true,
-  //   // isDataEqual: () => true
   });
-  // console.table(hello.data);
-  console.table(data);
 
   if (isLoading) return <LoadingNews />
 

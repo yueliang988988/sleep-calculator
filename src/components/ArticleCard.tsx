@@ -1,5 +1,4 @@
 import React from 'react';
-// import { date } from 'zod';
 import date from 'date-and-time';
 
 type ArticleCardProps = {

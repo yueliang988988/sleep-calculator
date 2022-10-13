@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { motion, SVGMotionProps } from "framer-motion";
 
 const Path = (props: JSX.IntrinsicAttributes & SVGMotionProps<SVGPathElement> & React.RefAttributes<SVGPathElement>) => (
