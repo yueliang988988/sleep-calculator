@@ -6,10 +6,10 @@ I made this website to present a minimalistic sleep calculator with some extra u
 
 This is an app bootstrapped according to the [init.tips](https://init.tips) stack, also known as the T3-Stack.
 
-- Next.js
-- Tailwind CSS
-- tRPC
-- Framer Motion
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [tRPC](https://trpc.io/)
+- [Framer Motion](https://www.framer.com/motion/)
 
 ## Inspiration
 
