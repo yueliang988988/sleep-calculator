@@ -12,7 +12,7 @@ export type SleepCycleResult = {
   message: string
 }
 
-const useCalculateCycle = (query: SleepCycleQuery): SleepCycleResult => {
+const calculateCycle = (query: SleepCycleQuery): SleepCycleResult => {
   const pattern = date.compile("h:mm A");
   let inputTime: Date = date.parse(query.time, pattern);
   let addCycle0: Date;
@@ -68,4 +68,4 @@ const useCalculateCycle = (query: SleepCycleQuery): SleepCycleResult => {
   }
 }
 
-export default useCalculateCycle;
+export default calculateCycle;

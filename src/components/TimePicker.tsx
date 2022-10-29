@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import useCalculateCycle from "../utils/useCalculateCycle";
+import calculateCycle from "../utils/calculateCycle";
 import Select, {SingleValue} from 'react-select';
 import SolutionDisplay from './SolutionDisplay';
 import { hoursSelect, minutesSelect, meridiemSelect } from '../utils/timeChoices';
@@ -71,7 +71,7 @@ const TimePicker: React.FC<TimePickerProps> = ({method, notifications, setNotifi
         setNotifications(add(notifications, msg));
         return;
     }
-    const {timeArray, message} = useCalculateCycle({
+    const {timeArray, message} = calculateCycle({
       time: `${selectedHours?.value}:${selectedMinutes?.value} ${selectedMeridiem?.value}`,
       method: method
     });

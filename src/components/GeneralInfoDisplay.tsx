@@ -20,7 +20,7 @@ const GeneralInfoDisplay: React.FC<Props> = (props: Props) => {
         What are sleep cycles?
       </h2>
       <p className=''>
-        Over the course of a night's rest, your sleep is made up of one or more cycles of 4 distinct stages of sleep, 
+        Over the course of a night&apos;s rest, your sleep is made up of one or more cycles of 4 distinct stages of sleep, 
         each with their own defining characteristics. Each stage has a tell-tale combination of brain wave signatures, 
         motor activity levels, and breathing and heart rates. Your body can go through each stage at varying durations 
         to make up an identifiable cycle that typically ranges from 80-120 minutes averaging at 90 minutes. 
@@ -42,7 +42,7 @@ const GeneralInfoDisplay: React.FC<Props> = (props: Props) => {
       </p>
 
       <h3 className='text-xl'>
-        What's the calculator for?
+        What&apos;s the calculator for?
       </h3>
       <p className=''>
         The aim is to approximate a specific sleep time or wake up time to allow yourself to wake up at a light stage of sleep. 
