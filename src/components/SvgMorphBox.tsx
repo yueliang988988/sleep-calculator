@@ -36,7 +36,7 @@ const SvgMorphBox: React.FC = () => {
     });
 
     return () => animation.stop();
-  }, [pathIndex]);
+  }, [pathIndex, progress]);
 
   return (
     <svg width="260" height="260">

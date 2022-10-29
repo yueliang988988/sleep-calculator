@@ -1,7 +1,7 @@
 // credit to framer motion examples
 // https://codesandbox.io/s/framer-motion-notifications-5cvo9?file=/src/array-utils.ts:0-264
-import type { Notifications } from "../components/TimePicker";
-import type { ErrorMsg } from "../components/TimePicker";
+import type { Notifications } from "../pages"
+import type { ErrorMsg } from "../pages";
 
 export const remove = (arr: Notifications[], item: number) => {
   const newArr = [...arr];
