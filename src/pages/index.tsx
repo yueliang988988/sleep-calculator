@@ -22,7 +22,7 @@ export default function Home() {
       <h1 className="text-3xl font-bold mb-6 text-center">Wake Window Calculator</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <label className="flex flex-col">
-          Baby's Age (in months):
+          Baby&apos;s Age (in months):
           <input
             type="number"
             min="0"
