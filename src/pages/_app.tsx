@@ -1,4 +1,5 @@
 // src/pages/_app.tsx
+import Head from "next/head"
 import { withTRPC } from "@trpc/next";
 import type { AppRouter } from "../server/router";
 import type { AppType } from "next/dist/shared/lib/utils";
@@ -8,11 +9,20 @@ import "../styles/globals.css";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
-  
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-  
+    <>
+      <Head>
+        <title>Wake Window Calculator – Free Baby Nap Planner</title>
+        <meta name="description" content="Instantly calculate your baby's wake windows and build a personalized nap schedule. Totally free." />
+        <link rel="canonical" href="https://wake-window-calculator.vercel.app/" />
+        <meta property="og:title" content="Wake Window Calculator – Baby Nap Schedule" />
+        <meta property="og:description" content="Use our free wake-window calculator to plan naps & bedtime for babies 0-24 months." />
+        <meta property="og:image" content="/og-image.png" />
+        <meta property="og:type" content="website" />
+      </Head>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
   );
 };
 
