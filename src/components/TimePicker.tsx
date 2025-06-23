@@ -6,7 +6,7 @@ import { hoursSelect, minutesSelect, meridiemSelect } from '../utils/timeChoices
 import usePrevious from '../utils/usePrevious';
 import {motion, AnimatePresence} from 'framer-motion'
 import { CloseButton } from './CloseButton';
-import { ErrorMsg, Notifications } from '../pages';
+import { ErrorMsg, Notifications } from './ErrorMsg';
 
 type TimePickerProps = {
   method: "asleepBy" | "wakeUpAt",
@@ -132,19 +132,19 @@ const TimePicker: React.FC<TimePickerProps> = ({method, notifications, setNotifi
           <Select 
             options={hoursSelect}
             instanceId={"hours"}
-            onChange={(option) => handleChangeHours(option)}
+            onChange={handleChangeHours}
             blurInputOnSelect
           />
           <Select 
             options={minutesSelect}
             instanceId={"minutes"}
-            onChange={(option) => handleChangeMinutes(option)}
+            onChange={handleChangeMinutes}
             blurInputOnSelect
           />
           <Select 
             options={meridiemSelect}
             instanceId={"meridiem"}
-            onChange={(option) => handleChangeMeridiem(option)}
+            onChange={handleChangeMeridiem}
             blurInputOnSelect
           />
 
