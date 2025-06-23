@@ -21,19 +21,23 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         <meta property="og:type" content="website" />
       </Head>
       
-      {/* Google Analytics 4 */}
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-MPW8GW0MEE"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-MPW8GW0MEE');
-        `}
-      </Script>
+      {/* Google Analytics 4 - Only load in production */}
+      {process.env.NODE_ENV === 'production' && (
+        <>
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=G-WGN42L61YL"
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-WGN42L61YL');
+            `}
+          </Script>
+        </>
+      )}
       
       <Layout>
         <Component {...pageProps} />
