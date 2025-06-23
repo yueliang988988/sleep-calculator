@@ -1,5 +1,6 @@
 // src/pages/_app.tsx
 import Head from "next/head"
+import Script from "next/script"
 import { withTRPC } from "@trpc/next";
 import type { AppRouter } from "../server/router";
 import type { AppType } from "next/dist/shared/lib/utils";
@@ -19,6 +20,21 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         <meta property="og:image" content="/og-image.png" />
         <meta property="og:type" content="website" />
       </Head>
+      
+      {/* Google Analytics 4 */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-MPW8GW0MEE"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-MPW8GW0MEE');
+        `}
+      </Script>
+      
       <Layout>
         <Component {...pageProps} />
       </Layout>
