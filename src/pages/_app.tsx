@@ -14,7 +14,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
       <Head>
         <title>Wake Window Calculator – Free Baby Nap Planner</title>
         <meta name="description" content="Instantly calculate your baby's wake windows and build a personalized nap schedule. Totally free." />
-        <link rel="canonical" href="https://wake-window-calculator.vercel.app/" />
+        <link rel="canonical" href="https://www.wakewindowcalc.com/" />
         <meta property="og:title" content="Wake Window Calculator – Baby Nap Schedule" />
         <meta property="og:description" content="Use our free wake-window calculator to plan naps & bedtime for babies 0-24 months." />
         <meta property="og:image" content="/og-image.png" />
