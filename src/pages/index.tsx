@@ -61,6 +61,15 @@ export default function Home() {
         </div>
       )}
 
+      <div className="text-center my-6">
+        <a
+          href="/embed"
+          className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow"
+        >
+          Embed on your site →
+        </a>
+      </div>
+
       <p className="text-sm text-center mt-10">
         New to wake windows?{" "}
         <Link href="/wake-windows-by-age" className="underline">
