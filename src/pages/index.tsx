@@ -1,7 +1,10 @@
 'use client'
 import { useState } from "react"
 import Link from "next/link"
+import dynamic from "next/dynamic"
 import { calcSchedule } from "../lib/calc"
+
+const GuidesSection = dynamic(() => import("../components/GuidesSection"), { ssr: false })
 
 export default function Home() {
   const [age, setAge] = useState(6)
@@ -18,7 +21,8 @@ export default function Home() {
   }
 
   return (
-    <main className="max-w-xl mx-auto p-6">
+    <div>
+      <main className="max-w-xl mx-auto p-6">
       <h1 className="text-3xl font-bold mb-6 text-center">Wake Window Calculator</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <label className="flex flex-col">
@@ -63,6 +67,9 @@ export default function Home() {
           Read the full guide
         </Link>
       </p>
-    </main>
+      </main>
+      
+      <GuidesSection />
+    </div>
   )
 }
