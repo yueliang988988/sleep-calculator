@@ -1,5 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
 import Head from 'next/head'
-import WakeWindowCalculator from '../components/WakeWindowCalculator'
+import RealWakeWindowCalculator from '../components/RealWakeWindowCalculator'
 
 export default function WakeWindowsByAge() {
   return (
@@ -12,7 +13,7 @@ export default function WakeWindowsByAge() {
       <div className="max-w-4xl mx-auto p-6">
         <h1 className="text-3xl font-bold mb-6">Wake Windows by Age</h1>
         
-        <WakeWindowCalculator className="my-8" />
+        <RealWakeWindowCalculator />
         
         <div className="prose max-w-none mt-8">
           <p className="text-lg text-gray-700 leading-relaxed">
