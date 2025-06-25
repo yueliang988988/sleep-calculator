@@ -15,15 +15,13 @@ export default function GuidesSection() {
         <h2 className="text-2xl font-semibold mb-8">Sleep Guides&nbsp;&amp;&nbsp;Tools</h2>
         <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
           {guides.map(g => (
-            <Link
-              key={g.slug}
-              href={`/${g.slug}`}
-              className="flex items-center justify-between rounded-xl border p-4 hover:shadow-lg transition"
-            >
-              <span>{g.title}</span>
-              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden>
-                <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" fill="none" />
-              </svg>
+            <Link key={g.slug} href={`/${g.slug}`}>
+              <a className="flex items-center justify-between rounded-xl border p-4 hover:shadow-lg transition">
+                <span>{g.title}</span>
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden>
+                  <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" fill="none" />
+                </svg>
+              </a>
             </Link>
           ))}
         </div>
