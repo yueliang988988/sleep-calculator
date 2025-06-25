@@ -1,10 +1,8 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const withMDX = require('@next/mdx')({
-  extension: /\.mdx?$/,
-  options: { remarkPlugins: [], rehypePlugins: [] },
-})
+const { env } = require("./src/server/env");
 
-module.exports = withMDX({
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  reactStrictMode: true,
-})
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: false,
+};
+
+module.exports = nextConfig;
