@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import Head from 'next/head'
+import Link from 'next/link'
 import RealWakeWindowCalculator from '../components/RealWakeWindowCalculator'
 
 export default function NapTransitionCalculator() {
@@ -54,7 +55,7 @@ export default function NapTransitionCalculator() {
         
         <div className="mt-8 p-4 bg-gray-50 rounded">
           <p>
-            <strong>Back to 👉 <a href="/" className="text-blue-600 underline">Wake Window Calculator</a></strong>
+            <strong>Back to 👉 <Link href="/" className="text-blue-600 underline">Wake Window Calculator</Link></strong>
           </p>
         </div>
       </div>
